@@ -1,2 +1,6 @@
 added a new 3 file
+<<<<<<< HEAD
 added a 2nd line
+=======
+added a 2nd in line remote
+>>>>>>> 261dfb1b8699d010a644641be61eccc72fae1141
