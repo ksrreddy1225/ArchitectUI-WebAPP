@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git-stage') {
+            steps {
+                git credentialsId: 'jengit', url: 'https://github.com/ksrreddy1225/ArchitectUI-WebAPP.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                deploy adapters: [tomcat8(credentialsId: 'tom-jen', path: '',
+                url: 'http://15.206.163.69:8080')], contextPath: 'pipeline-project', onFailure: false, war: 'target/*.war'
+            }
+        }
+    }
+}
