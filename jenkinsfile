@@ -14,8 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                deploy adapters: [tomcat8(credentialsId: 'tom-jen', path: '',
-                url: 'http://3.6.92.123:8080')], contextPath: 'pipeline-project', onFailure: false, war: 'target/*.war'
+                deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://3.6.92.123:8080')], contextPath: 'pipeline-demo', war: 'target/*.war'
             }
         }
     }
